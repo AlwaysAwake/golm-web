@@ -1,12 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Header } from './components';
 
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
-      <div>
+      <div className="expand">
+        <Header />
         {this.props.children}
       </div>
     );
   }
 }
+
+App.contextTypes = {
+  router: PropTypes.object.isRequired,
+};
+
+export default App;

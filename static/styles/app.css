@@ -1,4 +1,61 @@
+/* Global classes */
+
 * {
   margin: 0;
   padding: 0;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  overflow: auto;
+}
+
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.expand {
+  background-color: #00558B;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  padding: 20px;
+  margin: 0 auto;
+  width: 90%;
+  height: 100%;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+#header {
+  height: 100px;
+  line-height: 80px;
+  padding: 10px;
+  background-color: #aaa;
 }
