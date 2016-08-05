@@ -3,13 +3,13 @@ import React, { PropTypes, Component } from 'react';
 
 const CardItem = (props) => {
   return (
-    <div onClick={() => props.onClick(props.poll.id)} className="card no-select">
-      <div className="card-header">
-        <img src={props.poll.img} role="presentation" />
-      </div>
-      <div className="card-body">
-        <h2>{props.poll.title}</h2>
-        <h4>{props.poll.desc}</h4>
+    <div className="col-sm-4">
+      <div onClick={() => props.onClick(props.poll.id)} className="card no-select">
+        <img src={props.poll.img} className="card-img-top" role="presentation" style={{ width: '100%', height: '180px' }} />
+        <div className="card-block">
+          <h4 className="card-title">{props.poll.title}</h4>
+          <p className="card-text">{props.poll.desc}</p>
+        </div>
       </div>
     </div>
   );

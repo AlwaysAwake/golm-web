@@ -8,8 +8,8 @@ const CardContainerTab = (props) => {
     <div className="card-container-tab">
       { tabItems.map((tab, idx) => {
         return (
-          <div key={idx} className="card-container-tab-item">
-            {tab}
+          <div key={idx} onClick={() => props.onClick(tab)} className={`card-container-tab-item ${props.selectedTab === tab ? 'active' : ''}`}>
+            {tab.toUpperCase()}
           </div>
         );
       }) }
@@ -18,7 +18,8 @@ const CardContainerTab = (props) => {
 };
 
 CardContainerTab.propTypes = {
-  onClickTab: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+  selectedTab: PropTypes.string.isRequired,
 };
 
 export default CardContainerTab;

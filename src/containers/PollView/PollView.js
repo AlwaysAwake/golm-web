@@ -1,7 +1,12 @@
 import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
 
 
 class PollView extends Component {
+  componentWillMount() {
+
+  }
+
   render() {
     return (
       <div className="poll-container">
@@ -19,4 +24,10 @@ PollView.propTypes = {
   }).isRequired,
 };
 
-export default PollView;
+export default connect(
+  (state) => ({
+    poll: {},
+  })
+)(PollView);
+
+export default connect(mapStateToProps)(PollView);

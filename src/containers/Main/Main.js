@@ -20,7 +20,7 @@ class Main extends Component {
     const { polls } = this.props;
 
     return (
-      <div className="container">
+      <div className="container" style={{ padding: '15px' }}>
         <Swiper />
         <CardContainer
           polls={polls}
@@ -34,6 +34,23 @@ class Main extends Component {
 
 Main.contextTypes = {
   router: PropTypes.object.isRequired,
+};
+
+Main.propTypes = {
+  polls: PropTypes.shape({
+    normal: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      desc: PropTypes.string.isRequired,
+      img: PropTypes.string.isRequired,
+    })).isRequired,
+    premium: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      desc: PropTypes.string.isRequired,
+      img: PropTypes.string.isRequired,
+    })).isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => {
