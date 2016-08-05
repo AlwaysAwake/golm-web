@@ -1,28 +1,42 @@
 {
   "name": "golm-web",
   "version": "1.0.0",
-  "description": "",
+  "description": "Golm-web on the React + Redux for the 2016 Gokathon",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=dev node index.js",
+    "start:prod": "cross-env NODE_ENV=production node index.js",
+    "minify": "cleancss -o static/styles/app.min.css static/styles/app.css",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js && npm run minify",
+    "clean": "rimraf static/dist",
+    "slate": "rimraf node_modules && npm install",
+    "deploy": "pm2 deploy ecosystem.json production"
   },
-  "author": "",
+  "author": "Donghyun Koo @ Korea univ",
   "license": "ISC",
   "dependencies": {
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
+    "react-router": "^2.6.1",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.13.1",
     "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.13.1",
     "babel-preset-react": "^6.11.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-register": "^6.11.6",
+    "clean-css": "^3.4.19",
     "compression": "^1.6.2",
     "cross-env": "^2.0.0",
     "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-hot-middleware": "^2.12.2"
   }
 }
