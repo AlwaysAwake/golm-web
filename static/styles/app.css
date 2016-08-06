@@ -140,24 +140,50 @@ html {
 .card-container-tab {
   margin: 20px auto;
   text-align: center;
+  border-bottom: 4px solid rgb(126, 210, 233);
 }
 
 .card-container-tab-item {
   cursor: pointer;
+  width: 200px;
+  height: 40px;
   border-radius: 2px;
-  padding: 10px;
+  padding-top: 5px;
+  margin-bottom: -7.6px;
   color: #888;
-  border: 1px solid #888;
+  background-color: transparent;
   display: inline-block;
 }
 
 .card-container-tab-item.active {
-  border: 1px solid #fff;
-  color: #fff;
+  border: 0;
+
+  border-top: 4px solid rgb(126, 210, 233);
+  border-right: 4px solid rgb(126, 210, 233);
+  border-left: 4px solid rgb(126, 210, 233);
+  background-color: #FFFFFF;
+
 }
 
 .card-container-tab-item:first-child {
   margin-right: 5px;
+}
+
+.card {
+  min-height: 350px;
+  margin-bottom: 30px;
+  border-width: 2px !important;
+}
+
+.card:hover {
+  border-color: rgb(126, 210, 233);
+}
+
+.card-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .poll-item {
