@@ -1,3 +1,6 @@
+/* Actions: Common */
+export const DO_FETCH = 'DO_FETCH';
+
 /* Actions: Users */
 export const SET_USER = 'SET_USER';
 
