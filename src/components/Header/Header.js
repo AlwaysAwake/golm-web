@@ -13,7 +13,7 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="navbar" style={{ backgroundColor: '#7ed2e9' }}>
+      <nav className="navbar navbar-fixed-top" style={{ backgroundColor: '#7ed2e9' }}>
         <a onClick={(e) => this.onClickLink(e, '')} href="#" className="navbar-brand">GOLM</a>
         <ul className="nav navbar-nav pull-sm-right">
           <li className="nav-item">
