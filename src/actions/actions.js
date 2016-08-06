@@ -57,6 +57,7 @@ export function signUp({ user }) {
     dispatch(doFetch());
     return fetch(`${apiBaseURL}/users/signup`, {
       method: 'POST',
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
         user,
       }),
@@ -72,6 +73,7 @@ export function signIn({ user }) {
     dispatch(doFetch());
     return fetch(`${apiBaseURL}/users/signin`, {
       method: 'POST',
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
         user,
       }),

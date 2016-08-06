@@ -7,9 +7,13 @@ class Header extends Component {
     this.context.router.push(`/${redirectAddress}`);
   }
 
+  onClickSignout() {
+
+  }
+
   render() {
     return (
-      <nav className="navbar navbar-dark bg-inverse">
+      <nav className="navbar" style={{ backgroundColor: '#7ed2e9' }}>
         <a onClick={(e) => this.onClickLink(e, '')} href="#" className="navbar-brand">GOLM</a>
         <ul className="nav navbar-nav pull-sm-right">
           <li className="nav-item">
