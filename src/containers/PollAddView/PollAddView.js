@@ -5,10 +5,21 @@ import * as Actions from '../../actions/actions';
 
 
 class PollAddView extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      selectedTab: 'normal',
+    };
+  }
+
   componentWillMount() {
     if (!this.props.isSignedin) {
       this.context.router.push('/signin');
     }
+  }
+
+  onClickTab(selectedTab) {
+    this.setState({ selectedTab });
   }
 
   onClickPollAdd() {
@@ -21,15 +32,8 @@ class PollAddView extends Component {
     const imgBRef = this.refs.img_B.value;
     const descriptionARef = this.refs.description_A.value;
     const descriptionBRef = this.refs.description_B.value;
+    const { selectedTab } = this.state;
     let typeRef;
-
-    if(this.refs.type_normal.checked) {
-      typeRef = "normal";
-    } else if (this.refs.type_premium.checked){
-      typeRef = "premium";
-    } else {
-      typeRef = "";
-    }
 
     if (titleRef !== '' && answerARef !== '' && answerBRef !== '' && typeRef !== '' && isSignedin) {
       dispatch(Actions.addPoll({
@@ -41,26 +45,83 @@ class PollAddView extends Component {
         img_B: imgBRef,
         description_A: descriptionARef,
         description_B: descriptionBRef,
-        type: typeRef
+        type: selectedTab,
       }));
     }
   }
-  render() {
-    return (
-      <div className="container">
-        <input ref="title" />
-        <input ref="description" />
-        <input ref="answer_A" />
-        <input ref="answer_B" />
-        <input ref="img_A" />
-        <input ref="img_B" />
-        <input ref="description_A" />
-        <input ref="description_B" />
-        <input ref="type_normal" name="type" type="radio" value="normal" />
-        <input ref="type_premium" name="type" type="radio" value="premium" />
 
+  render() {
+    const { selectedTab } = this.state;
+    const types = {
+      normal: '개인 사용자',
+      premium: '기업 등록',
+    };
+
+    return (
+      <div className="container poll-add-container">
+        <div className="type-select-tab-wrapper">
+        { Object.keys(types).map((type, idx) => {
+          return (
+            <div key={idx} onClick={() => this.onClickTab(type)} className={`type-select-tab ${selectedTab === type ? 'active' : ''}`}>
+              {types[type]}
+            </div>
+          );
+        }) }
+        </div>
+        <div className="poll-add-input-wrapper">
+          <div className="row">
+            <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+              <h5 style={{ display: 'inline-block', marginRight: '15px' }}>Title: </h5>
+              <input className="underline-input" type="text" ref="title" />
+            </div>
+            <div className="col-sm-12" style={{ marginBottom: '20px' }}>
+              <h5>Description :</h5>
+              <textarea ref="description" rows="5" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="row">
+                <div className="col-sm-12" style={{ marginBottom: '25px' }}>
+                  <h5>Subject&nbsp;&nbsp;&nbsp;<span style={{ fontSize: '50px' }}>A</span></h5>
+                </div>
+                <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+                  <h5>A Title</h5>
+                  <input className="underline-input" type="text" ref="answer_A" />
+                </div>
+                <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+                  <h5>A Description</h5>
+                  <textarea ref="description_A" rows="3" />
+                </div>
+                <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+                  <h5>A Image</h5>
+                  <input className="underline-input" type="text" ref="img_A" />
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-6">
+              <div className="row">
+                <div className="col-sm-12" style={{ marginBottom: '25px' }}>
+                  <h5>Subject&nbsp;&nbsp;&nbsp;<span style={{ fontSize: '50px' }}>B</span></h5>
+                </div>
+                <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+                  <h5>B Title</h5>
+                  <input className="underline-input" type="text" ref="answer_B" />
+                </div>
+                <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+                  <h5>B Description</h5>
+                  <textarea ref="description_B" rows="3" />
+                </div>
+                <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+                  <h5>B Image</h5>
+                  <input className="underline-input" type="text" ref="img_B" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="button-wrapper">
-          <button onClick={() => this.onClickPollAdd()}>추가</button>
+          <div className="register-button text-center" onClick={() => this.onClickPollAdd()}>등록</div>
         </div>
       </div>
     );

@@ -329,6 +329,7 @@ html {
 }
 
 .signup-container input {
+  min-width: 320px;
   border: none;
   border-bottom: 2px solid rgb(55, 58, 60);
 }
@@ -343,4 +344,58 @@ html {
 
 .button-wrapper {
   cursor: pointer;
+}
+
+.type-select-tab-wrapper {
+  margin-left: 30px;
+}
+
+.type-select-tab {
+  cursor: pointer;
+  padding: 10px;
+  display: inline-block;
+  color: #cfcfcf;
+  background-color: transparent;
+  border-radius: 2px;
+  border-top: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  margin-right: 10px;
+  margin-bottom: -3.6px;
+}
+
+.type-select-tab.active {
+  color: #939393;
+  border-top-color: #939393;
+  border-left-color: #939393;
+  border-right-color: #939393;
+  background-color: #fff;
+}
+
+.poll-add-input-wrapper {
+  padding: 40px 80px;
+  border-top: 4px solid #939393;
+}
+
+.poll-add-input-wrapper input.underline-input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #939393;
+}
+
+.poll-add-input-wrapper input:focus {
+  border: none;
+}
+
+.poll-add-input-wrapper textarea {
+  width: 100%;
+}
+
+.register-button {
+  margin: 0 auto;
+  width: 100px;
+  padding: 5px;
+  color: #939393;
+  border: 2px solid #939393;
+  border-radius: 50px;
 }
