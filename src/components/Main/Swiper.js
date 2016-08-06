@@ -12,7 +12,7 @@ const Swiper = () => {
     <Slider {...sliderSettings}>
       <div><img className="centered" src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/main_banner_01.png" alt=""/></div>
       <div><img className="centered" src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/main_banner_02.png" alt=""/></div>
-      <div><img className="centered" src="http://placehold.it/400x200" alt=""/></div>
+      <div><img className="centered" src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/main_banner_03.png" alt=""/></div>
       <div><img className="centered" src="http://placehold.it/400x200" alt=""/></div>
       <div><img className="centered" src="http://placehold.it/400x200" alt=""/></div>
       <div><img className="centered" src="http://placehold.it/400x200" alt=""/></div>
