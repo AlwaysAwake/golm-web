@@ -13,7 +13,7 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="navbar">
+      <nav className="navbar" style={{ backgroundColor: '#ccc' }}>
         <a onClick={(e) => this.onClickLink(e, '')} href="#" className="navbar-brand">
           <img src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/logo_top.png" role="presentation" style={{ width: '130px', height: 'auto', marginLeft: '10px' }} />
         </a>
