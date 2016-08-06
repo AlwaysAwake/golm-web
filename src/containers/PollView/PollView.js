@@ -42,7 +42,7 @@ class PollView extends Component {
         isFetching
         ? <Spinner />
         : <div>
-          <h2 className="display-3">{poll.title}</h2>
+          <h2 className="display-4" style={{ fontWeight: 500 }}>{poll.title}</h2>
           <div className="divider"></div>
           <h3 className="lead">{poll.description}</h3>
           <div className="row" style={{ marginTop: '20px' }}>
