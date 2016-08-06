@@ -76,10 +76,10 @@ https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/${poll.ty
           <div className="row">
             <div className="col-sm-12">
               <div className="percentage-left">
-                A&nbsp;&nbsp;&nbsp;{percentA}%
+                A&nbsp;&nbsp;&nbsp;{percentA.toFixed(1)}%
               </div>
               <div className="percentage-right">
-                {percentB}%&nbsp;&nbsp;&nbsp;B
+                {percentB.toFixed(1)}%&nbsp;&nbsp;&nbsp;B
               </div>
             </div>
             <div className="col-sm-12">
