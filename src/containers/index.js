@@ -9,3 +9,5 @@ export Signup from './Signup/Signup';
 
 /* PollView containers */
 export PollView from './PollView/PollView';
+
+export PollAddView from './PollAddView/PollAddView';
