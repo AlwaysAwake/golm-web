@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 
 import * as Actions from '../../actions/actions';
 
-import { Swiper, CardContainer } from '../../components';
-import fixtures from '../../fixtures/fixtures';
+import { Swiper, CardContainer, Spinner } from '../../components';
 
 
 class Main extends Component {
   componentWillMount() {
-    this.props.dispatch(Actions.fetchPolls());
+    const { dispatch } = this.props;
+
+    dispatch(Actions.doFetch());
+    dispatch(Actions.fetchPolls());
   }
 
   onClickCard(id) {
@@ -21,16 +23,22 @@ class Main extends Component {
   }
 
   render() {
-    const { polls } = this.props;
+    const { polls, isFetching } = this.props;
 
     return (
       <div className="container" style={{ padding: '15px' }}>
-        <Swiper />
-        <CardContainer
-          polls={polls}
-          onClickCard={(id) => this.onClickCard(id)}
-          onClickTab={(tab) => this.onClickTab(tab)}
-        />
+      {
+        isFetching
+        ? <Spinner />
+        : <div>
+          <Swiper />
+          <CardContainer
+            polls={polls}
+            onClickCard={(id) => this.onClickCard(id)}
+            onClickTab={(tab) => this.onClickTab(tab)}
+          />
+        </div>
+      }
       </div>
     );
   }
@@ -48,6 +56,7 @@ const mapStateToProps = (state) => {
   const { polls } = state;
   return {
     polls: polls.polls,
+    isFetching: state.common.isFetching,
   };
 };
 

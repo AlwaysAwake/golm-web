@@ -5,6 +5,12 @@ import { apiBaseURL } from '../constants/api';
 import { parseJSON, checkStatus } from '../utils/promiseMiddleware';
 
 
+export function doFetch() {
+  return {
+    type: ActionTypes.DO_FETCH,
+  };
+}
+
 export function setPoll(res) {
   return {
     type: ActionTypes.SET_POLL,
