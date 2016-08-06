@@ -58,15 +58,15 @@ html {
 }
 
 .sk-cube-grid {
-  width: 40px;
-  height: 40px;
+  width: 150px;
+  height: 150px;
   margin: 100px auto;
 }
 
 .sk-cube-grid .sk-cube {
   width: 33%;
   height: 33%;
-  background-color: #333;
+  background-color: #7ed2e9;
   float: left;
   -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
           animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
@@ -132,6 +132,10 @@ html {
 .fit-to-width {
   width: 100%;
   height: auto;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #aaa;
 }
 
 /* Custom styles */

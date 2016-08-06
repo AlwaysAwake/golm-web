@@ -3,9 +3,16 @@ import { connect } from 'react-redux';
 
 import * as Actions from '../../actions/actions';
 
+
 class PollAddView extends Component {
+  componentWillMount() {
+    if (!this.props.isSignedin) {
+      this.context.router.push('/signin');
+    }
+  }
+
   onClickPollAdd() {
-    const { dispatch, user } = this.props;
+    const { dispatch, isSignedin } = this.props;
     const titleRef = this.refs.title.value;
     const descriptionRef = this.refs.description.value;
     const answerARef = this.refs.answer_A.value;
@@ -24,7 +31,7 @@ class PollAddView extends Component {
       typeRef = "";
     }
 
-    if (titleRef !== '' && answerARef !== '' && answerBRef !== '' && typeRef !== '' && user) {
+    if (titleRef !== '' && answerARef !== '' && answerBRef !== '' && typeRef !== '' && isSignedin) {
       dispatch(Actions.addPoll({
         title: titleRef,
         description: descriptionRef,
@@ -60,11 +67,14 @@ class PollAddView extends Component {
   }
 }
 
+PollAddView.contextTypes = {
+  router: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = (state) => {
   const { users } = state;
   return {
-    user: users.user,
-    isFetching: state.common.isFetching,
+    isSignedin: !!users.user,
   };
 };
 
