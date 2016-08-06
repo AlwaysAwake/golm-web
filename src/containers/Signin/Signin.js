@@ -17,7 +17,7 @@ class Signin extends Component {
           email: emailRef,
           password: passRef,
         },
-      }));
+      })).then(() => this.context.router.push('/'));
     }
   }
   render() {
@@ -51,5 +51,9 @@ class Signin extends Component {
     );
   }
 }
+
+Signin.contextTypes = {
+  router: PropTypes.object.isRequired,
+};
 
 export default connect()(Signin);

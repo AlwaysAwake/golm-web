@@ -22,7 +22,7 @@ class Signup extends Component {
           nickname: nicknameRef,
           phone: phoneRef,
         },
-      }));
+      })).then(() => this.context.router.push('/'));
     }
   }
   render() {
@@ -80,5 +80,9 @@ class Signup extends Component {
     );
   }
 }
+
+Signup.contextTypes = {
+  router: PropTypes.object.isRequired,
+};
 
 export default connect()(Signup);

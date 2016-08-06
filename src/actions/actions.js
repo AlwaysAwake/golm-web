@@ -104,6 +104,12 @@ export function signIn({ user }) {
   };
 }
 
+export function signOut() {
+  return {
+    type: ActionTypes.SIGN_OUT,
+  };
+}
+
 export function addPoll(poll) {
   return (dispatch, getState) => {
     dispatch(doFetch());

@@ -10,6 +10,12 @@ const users = (state = initialState, action) => {
         user: action.user,
       };
 
+    case ActionTypes.SIGN_OUT:
+      return {
+        ...state,
+        user: {},
+      };
+
     default:
       return state;
   }
