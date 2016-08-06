@@ -16,6 +16,15 @@
   }],
 
   "deploy": {
-
+    "production": {
+      "key": "/home/gooding/projects/lfkp.pem",
+      "user": "ec2-user",
+      "host": ["52.79.173.235"],
+      "repo": "https://github.com/AlwaysAwake/golm-web.git",
+      "post-deploy": "npm install ; npm run clean ; npm run build ; pm2 startOrRestart ecosystem.json --env production",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
   }
 }
