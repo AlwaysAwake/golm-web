@@ -19,10 +19,14 @@ class Header extends Component {
         </a>
         <ul className="nav navbar-nav pull-sm-right">
           <li className="nav-item">
-            <a onClick={(e) => this.onClickLink(e, 'signin')} href="#" className="nav-link">Sign in</a>
+            <a onClick={(e) => this.onClickLink(e, 'signin')} href="#" className="nav-link">
+              <img src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/sign_in_bright.png" role="presentation" />
+            </a>
           </li>
           <li className="nav-item">
-            <a onClick={(e) => this.onClickLink(e, 'signup')} href="#" className="nav-link">Sign up</a>
+            <a onClick={(e) => this.onClickLink(e, 'signup')} href="#" className="nav-link">
+              <img src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/sign_up_bright.png" role="presentation" />
+            </a>
           </li>
         </ul>
       </nav>
