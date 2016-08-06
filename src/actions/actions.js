@@ -46,7 +46,7 @@ export function setUser(res) {
 
 export function signUp({ user }) {
   return (dispatch) => {
-    return fetch(`${apiBaseURL}/users`, {
+    return fetch(`${apiBaseURL}/users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         user,
@@ -60,7 +60,7 @@ export function signUp({ user }) {
 
 export function signIn({ user }) {
   return (dispatch) => {
-    return fetch(`${apiBaseURL}/signin`, {
+    return fetch(`${apiBaseURL}/users/signin`, {
       method: 'POST',
       body: JSON.stringify({
         user,

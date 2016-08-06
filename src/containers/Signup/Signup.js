@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 
 
-class Signin extends Component {
+class Signup extends Component {
   render() {
     return (
       <div className="container">
@@ -11,8 +11,8 @@ class Signin extends Component {
   }
 }
 
-Signin.propTypes = {
+Signup.propTypes = {
 
 };
 
-export default Signin;
+export default Signup;

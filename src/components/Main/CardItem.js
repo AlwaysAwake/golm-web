@@ -1,14 +1,16 @@
 import React, { PropTypes, Component } from 'react';
+import { defaultImg } from '../../constants/assets';
 
 
 const CardItem = (props) => {
   return (
     <div className="col-sm-4">
       <div onClick={() => props.onClick(props.poll.id)} className="card no-select">
-        <img src={props.poll.img} className="card-img-top" role="presentation" style={{ width: '100%', height: '180px' }} />
+        <img src={props.poll.img_A || defaultImg} className="card-img-top" role="presentation" style={{ width: '50%', height: '180px' }} />
+        <img src={props.poll.img_B || defaultImg} className="card-img-top" role="presentation" style={{ width: '50%', height: '180px' }} />
         <div className="card-block">
           <h4 className="card-title">{props.poll.title}</h4>
-          <p className="card-text">{props.poll.desc}</p>
+          <p className="card-text">{props.poll.description}</p>
         </div>
       </div>
     </div>
@@ -16,12 +18,7 @@ const CardItem = (props) => {
 };
 
 CardItem.propTypes = {
-  poll: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    desc: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
-  }).isRequired,
+  poll: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
