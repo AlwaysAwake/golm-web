@@ -57,7 +57,7 @@ class PollView extends Component {
           </div>
           <div className="row" style={{ padding: '0 30px' }}>
             <div className="col-sm-12">
-              <input className="comment-input text-center" type="text" ref="comment" style={{ width: '100%', marginTop: '10px', marginBottom: '10px' }} placeholder="Please show your opinion." />
+              <input className="comment-input text-center" type="text" ref="comment" style={{ width: '100%', marginTop: '10px', marginBottom: '10px' }} placeholder="선택하실 내용에 대한 의견을 작성해 주신 후 투표해 주세요." />
             </div>
             <div className="col-sm-6">
               <img onClick={() => this.onClickPoll('A')} className="vote-img fit-to-width" src="
