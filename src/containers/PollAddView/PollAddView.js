@@ -144,16 +144,18 @@ class PollAddView extends Component {
                 <h5># of Applicant</h5>
                 <input type="text" className="underline-input" ref="applicant" />
               </div>
-              <div className="col-sm-12" style={{ marginBottom: '10px' }}>
-                <h5>Expired at</h5>
-                <DatePicker
-                  dateFormat="YYYY-MM-DD"
-                  selected={startDate}
-                  onChange={(d) => this.handleChange(d)} />
-              </div>
             </div>
             : ''
           }
+          <div className="row">
+            <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+              <h5>Expired at</h5>
+              <DatePicker
+                dateFormat="YYYY-MM-DD"
+                selected={startDate}
+                onChange={(d) => this.handleChange(d)} />
+            </div>
+          </div>
         </div>
         <div className="button-wrapper">
           <div className="register-button text-center" onClick={() => this.onClickPollAdd()}>등록</div>
