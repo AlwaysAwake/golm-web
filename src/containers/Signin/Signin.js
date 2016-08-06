@@ -22,11 +22,30 @@ class Signin extends Component {
   }
   render() {
     return (
-      <div className="container">
-        <input ref="email" type="email" />
-        <input ref="pass" type="password" />
-        <div className="button-wrapper">
-          <button onClick={() => this.onClickSignin()}>Signin</button>
+      <div className="container signup-container">
+        <h2 className="text-center">GOLM에 로그인</h2>
+        <h4 className="text-center">GOLM에 오신 것을 환영합니다!</h4>
+        <div className="divider" style={{ border: '2px solid rgb(55, 58, 60)', marginBottom: '75px' }}></div>
+        <div className="signup-input-wrapper">
+          <div className="row">
+            <div className="col-sm-6 text-right">
+              <h5>Email Address :</h5>
+            </div>
+            <div className="col-sm-6">
+              <input ref="email" type="email" />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-6 text-right">
+              <h5>Password :</h5>
+            </div>
+            <div className="col-sm-6">
+              <input ref="pass" type="password" />
+            </div>
+          </div>
+        </div>
+        <div className="button-wrapper text-center">
+          <img onClick={() => this.onClickSignin()} src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/sign_in_b.png" role="presentation" />
         </div>
       </div>
     );

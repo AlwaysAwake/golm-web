@@ -291,3 +291,25 @@ html {
   border: 2px solid #2ea2c2;
   height: 4px;
 }
+
+.signup-container {
+  padding: 30px;
+  color: rgb(55, 58, 60);
+}
+
+.signup-container input {
+  border: none;
+  border-bottom: 2px solid rgb(55, 58, 60);
+}
+
+.signup-container input:focus {
+  border: none;
+}
+
+.signup-container .row {
+  margin-bottom: 50px;
+}
+
+.button-wrapper {
+  cursor: pointer;
+}
