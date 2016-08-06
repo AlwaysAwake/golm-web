@@ -14,7 +14,7 @@ export function setPoll(res) {
 
 export function fetchPoll(id) {
   return (dispatch) => {
-    return fetch(`${apiBaseURL}`)
+    return fetch(`${apiBaseURL}/polls/${id}`)
       .then(checkStatus)
       .then(parseJSON)
       .then(res => dispatch(setPoll(res)));

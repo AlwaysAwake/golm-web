@@ -1,5 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 
+import { validateEmail } from '../../utils/validator';
+
 
 class Signin extends Component {
   render() {

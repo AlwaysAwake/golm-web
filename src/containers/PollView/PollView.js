@@ -2,7 +2,6 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as Actions from '../../actions/actions';
-import fixtures from '../../fixtures/fixtures';
 
 import { PollItem, CommentList } from '../../components';
 
@@ -64,9 +63,11 @@ PollView.propTypes = {
   }).isRequired,
 };
 
-export default connect(
-  (state) => ({
-    poll: fixtures.poll,
-    // poll: state.poll,
-  })
-)(PollView);
+const mapStateToProps = (state) => {
+  const { polls } = state;
+  return {
+    poll: polls.poll,
+  };
+};
+
+export default connect(mapStateToProps)(PollView);

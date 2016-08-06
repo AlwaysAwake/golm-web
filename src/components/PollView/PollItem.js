@@ -19,8 +19,8 @@ const PollItem = (props) => {
 
 PollItem.propTypes = {
   img: PropTypes.string,
-  answer: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  answer: PropTypes.string,
+  description: PropTypes.string,
 }
 
 export default PollItem;

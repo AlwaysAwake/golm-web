@@ -1,24 +1,23 @@
 import * as ActionTypes from '../constants/actions';
 
 const initialState = {
-  polls: [],
-  poll: {
-    poll_histories: [],
-  },
+  isFetching: false,
 };
 
-const polls = (state = initialState, action) => {
+const users = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.SET_POLL:
+    case ActionTypes.DO_FETCH:
       return {
         ...state,
-        poll: action.poll,
+        isFetching: true,
       };
 
+    case ActionTypes.SET_USER:
+    case ActionTypes.SET_POLL:
     case ActionTypes.SET_POLLS:
       return {
         ...state,
-        polls: action.polls,
+        isFetching: false,
       };
 
     default:
@@ -26,4 +25,4 @@ const polls = (state = initialState, action) => {
   }
 };
 
-export default polls;
+export default users;
