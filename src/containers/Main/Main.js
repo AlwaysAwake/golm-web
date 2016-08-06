@@ -50,6 +50,7 @@ Main.contextTypes = {
 
 Main.propTypes = {
   polls: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => {

@@ -1,7 +1,7 @@
 import * as ActionTypes from '../constants/actions';
 
 const initialState = {
-  isFetching: false,
+  isFetching: true,
 };
 
 const users = (state = initialState, action) => {
