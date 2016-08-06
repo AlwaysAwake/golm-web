@@ -2,6 +2,7 @@
 
 /* Common components */
 export NotFound from './Common/NotFound';
+export Spinner from './Common/Spinner';
 
 /* Header components */
 export Header from './Header/Header';
