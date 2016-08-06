@@ -59,7 +59,11 @@ https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_a
               <img onClick={() => this.onClickPoll('B')} className="vote-img fit-to-width" src="
 https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_b.png" role="presentation" />
             </div>
-            <CommentList pollHistories={poll.poll_histories} />
+          </div>
+          <div className="row">
+            <div className="col-sm-12">
+              <CommentList pollHistories={poll.poll_histories} />
+            </div>
           </div>
         </div>
       }

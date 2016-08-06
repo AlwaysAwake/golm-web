@@ -183,3 +183,39 @@ html, body, #root {
   border: 2px solid #cfcece;
   color: #939393;
 }
+
+.comment-list-container {
+  margin-top: 30px;
+  min-height: 300px;
+  background: #6bcfea; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#6bcfea, #fff); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#6bcfea, #fff); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#6bcfea, #fff); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#6bcfea, #fff); /* Standard syntax */
+  padding: 20px;
+}
+
+.comment-list-wrapper {
+  min-height: 200px;
+  background: rgba(255, 255, 255, .3);
+  border: 4px solid #fff;
+}
+
+.comment-list-tab-wrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comment-list-tab {
+  cursor: pointer;
+  padding: 10px;
+  display: inline-block;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #92bfcb;
+}
+
+.comment-list-tab.active {
+  color: #7dd5ed;
+  background-color: #fff;
+}

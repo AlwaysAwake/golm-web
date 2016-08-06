@@ -1,17 +1,55 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
 import { CommentItem } from '../../components';
 
 
-const CommentList = (props) => {
-  return (
-    <div className="comment-list">
-    { props.pollHistories.map((history, idx) => {
-      return <CommentItem key={idx} {...history} />;
-    }) }
-    </div>
-  );
-};
+class CommentList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedTab: 'all',
+    };
+  }
+
+  onClickTab(selectedTab) {
+    this.setState({ selectedTab });
+  }
+
+  render() {
+    const { pollHistories } = this.props;
+    const { selectedTab } = this.state;
+
+    let filteredHistories = pollHistories;
+    if (selectedTab !== 'all') {
+      filteredHistories = pollHistories.filter(history => history.answer === selectedTab);
+    }
+
+    const tabList = {
+      all: 'All comments',
+      A: 'Comments supporting A',
+      B: 'Comments supporting B',
+    };
+
+    return (
+      <div className="comment-list-container">
+        <div className="comment-list-tab-wrapper">
+        { Object.keys(tabList).map((tab, idx) => {
+          return (
+            <div onClick={() => this.onClickTab(tab)} key={idx} className={`comment-list-tab ${selectedTab === tab ? 'active' : ''}`}>
+              {tabList[tab]}
+            </div>
+          );
+        }) }
+        </div>
+        <div className="comment-list-wrapper">
+          { filteredHistories.map((history, idx) => {
+            return <CommentItem key={idx} {...history} />;
+          }) }
+        </div>
+      </div>
+    );
+  }
+}
 
 CommentList.propTypes = {
   pollHistories: PropTypes.arrayOf(PropTypes.shape({
