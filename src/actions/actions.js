@@ -103,3 +103,21 @@ export function signIn({ user }) {
       .then(res => dispatch(setUser(res)));
   };
 }
+
+export function addPoll(poll) {
+  return (dispatch, getState) => {
+    dispatch(doFetch());
+    const { users: { user } } = getState();
+    return fetch(`${apiBaseURL}/polls`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        ...poll,
+        user_id: user.id
+      }),
+    })
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(res => dispatch(setUser(res)));
+  };
+}
