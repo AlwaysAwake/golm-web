@@ -1,5 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import DatePicker from 'react-datepicker';
+var moment = require('moment');
 
 import * as Actions from '../../actions/actions';
 
@@ -9,7 +11,12 @@ class PollAddView extends Component {
     super(props, context);
     this.state = {
       selectedTab: 'normal',
+      startDate: moment(),
     };
+  }
+
+  handleChange(date) {
+    this.setState({ startDate: date });
   }
 
   componentWillMount() {
@@ -32,8 +39,14 @@ class PollAddView extends Component {
     const imgBRef = this.refs.img_B.value;
     const descriptionARef = this.refs.description_A.value;
     const descriptionBRef = this.refs.description_B.value;
-    const { selectedTab } = this.state;
+    const { selectedTab, startDate } = this.state;
     let typeRef;
+
+    const premiumFeatures = selectedTab === 'premium' ? {
+      price: this.refs.price.value,
+      applicant: this.refs.applicant.value,
+      expired_at: startDate,
+    } : {};
 
     if (titleRef !== '' && answerARef !== '' && answerBRef !== '' && typeRef !== '' && isSignedin) {
       dispatch(Actions.addPoll({
@@ -46,12 +59,13 @@ class PollAddView extends Component {
         description_A: descriptionARef,
         description_B: descriptionBRef,
         type: selectedTab,
+        ...premiumFeatures,
       }));
     }
   }
 
   render() {
-    const { selectedTab } = this.state;
+    const { selectedTab, startDate } = this.state;
     const types = {
       normal: '개인 사용자',
       premium: '기업 등록',
@@ -119,6 +133,27 @@ class PollAddView extends Component {
               </div>
             </div>
           </div>
+          {
+            selectedTab === 'premium' ?
+            <div className="row">
+              <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+                <h5>Price</h5>
+                <input type="text" className="underline-input" ref="price" />
+              </div>
+              <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+                <h5># of Applicant</h5>
+                <input type="text" className="underline-input" ref="applicant" />
+              </div>
+              <div className="col-sm-12" style={{ marginBottom: '10px' }}>
+                <h5>Expired at</h5>
+                <DatePicker
+                  dateFormat="YYYY-MM-DD"
+                  selected={startDate}
+                  onChange={(d) => this.handleChange(d)} />
+              </div>
+            </div>
+            : ''
+          }
         </div>
         <div className="button-wrapper">
           <div className="register-button text-center" onClick={() => this.onClickPollAdd()}>등록</div>
