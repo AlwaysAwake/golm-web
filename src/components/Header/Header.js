@@ -8,6 +8,7 @@ class Header extends Component {
   }
 
   render() {
+    const { username, onClickSignout } = this.props;
     return (
       <nav className="navbar" style={{ backgroundColor: '#ccc' }}>
         <a onClick={(e) => this.onClickLink(e, '')} href="#" className="navbar-brand">
@@ -15,11 +16,11 @@ class Header extends Component {
         </a>
         <ul className="nav navbar-nav pull-sm-right">
           {
-            this.props.username ?
+            username ?
               <div>
-                <span>{this.props.username}님 환영합니다.</span>
+                <span style={{ display: 'block' }}>{username}님 환영합니다.</span>
                 <li className="nav-item">
-                  <a onClick={ this.props.onClickSignout } href="#" className="nav-link">
+                  <a onClick={onClickSignout} href="#" className="nav-link">
                     <img src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/sign_out_bright.png" role="presentation" />
                   </a>
                 </li>

@@ -11,6 +11,7 @@ class App extends Component {
 
     dispatch(Actions.signOut());
   }
+
   render() {
     return (
       <div className="expand">
@@ -32,7 +33,7 @@ App.propTypes = {
 const mapStateToProps = (state) => {
   const { polls, users } = state;
   return {
-    username: users.user ? users.user.nickname : undefined
+    username: users.user ? users.user.nickname : undefined,
   };
 };
 
