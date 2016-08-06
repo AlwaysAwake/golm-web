@@ -10,7 +10,6 @@ class Main extends Component {
   componentWillMount() {
     const { dispatch } = this.props;
 
-    dispatch(Actions.doFetch());
     dispatch(Actions.fetchPolls());
   }
 

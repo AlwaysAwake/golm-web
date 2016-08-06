@@ -20,6 +20,7 @@ export function setPoll(res) {
 
 export function fetchPoll(id) {
   return (dispatch) => {
+    dispatch(doFetch());
     return fetch(`${apiBaseURL}/polls/${id}`)
       .then(checkStatus)
       .then(parseJSON)
@@ -36,6 +37,7 @@ export function setPolls(res) {
 
 export function fetchPolls() {
   return (dispatch) => {
+    dispatch(doFetch());
     return fetch(`${apiBaseURL}/polls`)
       .then(checkStatus)
       .then(parseJSON)
@@ -52,6 +54,7 @@ export function setUser(res) {
 
 export function signUp({ user }) {
   return (dispatch) => {
+    dispatch(doFetch());
     return fetch(`${apiBaseURL}/users/signup`, {
       method: 'POST',
       body: JSON.stringify({
@@ -66,6 +69,7 @@ export function signUp({ user }) {
 
 export function signIn({ user }) {
   return (dispatch) => {
+    dispatch(doFetch());
     return fetch(`${apiBaseURL}/users/signin`, {
       method: 'POST',
       body: JSON.stringify({

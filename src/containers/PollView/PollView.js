@@ -10,7 +10,6 @@ class PollView extends Component {
   componentWillMount() {
     const { params, dispatch } = this.props;
 
-    dispatch(Actions.doFetch());
     dispatch(Actions.fetchPoll(params.id));
   }
 
