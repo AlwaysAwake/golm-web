@@ -1,10 +1,14 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
+import * as Actions from '../../actions/actions';
+
 
 class PollView extends Component {
   componentWillMount() {
+    const { params, dispatch } = this.props;
 
+    dispatch(Actions.fetchPoll(params.id));
   }
 
   render() {
@@ -26,7 +30,7 @@ PollView.propTypes = {
 
 export default connect(
   (state) => ({
-    poll: {},
+    poll: state.poll,
   })
 )(PollView);
 
