@@ -27,6 +27,14 @@ class PollView extends Component {
 
   render() {
     const { poll, isFetching } = this.props;
+    let percentA, percentB;
+    if (poll.count_A === 0 && poll.count_B === 0) {
+      percentA = 50;
+      percentB = 50;
+    } else {
+      percentA = poll.count_A / (poll.count_A + poll.count_B);
+      percentB = poll.count_B / (poll.count_A + poll.count_B);
+    }
 
     return (
       <div className="container" style={{ padding: '15px' }}>
@@ -62,6 +70,22 @@ https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_b
           </div>
           <div className="row">
             <div className="col-sm-12">
+              <div className="percentage-left">
+                {`A ${percentA}%`}
+              </div>
+              <div className="percentage-right">
+                {`${percentB}% B`}
+              </div>
+            </div>
+            <div className="col-sm-12">
+              <img src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/point_so.png" className="percentage-pointer-img" role="presentation" style={{ marginLeft: `${percentA}%` }} />
+            </div>
+            <div className="col-sm-12">
+              <div className="percentage-bar"></div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-12">
               <CommentList pollHistories={poll.poll_histories} />
             </div>
           </div>
@@ -73,21 +97,7 @@ https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_b
 }
 
 PollView.propTypes = {
-  poll: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string,
-    type: PropTypes.string.isRequired,
-    user_id: PropTypes.number.isRequired,
-    answer_A: PropTypes.string.isRequired,
-    answer_B: PropTypes.string.isRequired,
-    img_A: PropTypes.string,
-    img_B: PropTypes.string,
-    description_A: PropTypes.string,
-    description_B: PropTypes.string,
-    created_at: PropTypes.string,
-    updated_at: PropTypes.string,
-  }).isRequired,
+  poll: PropTypes.object.isRequired,
   isFetching: PropTypes.bool.isRequired,
 };
 

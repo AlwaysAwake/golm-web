@@ -35,7 +35,7 @@ class CommentList extends Component {
         <div className="comment-list-tab-wrapper">
         { Object.keys(tabList).map((tab, idx) => {
           return (
-            <div onClick={() => this.onClickTab(tab)} key={idx} className={`comment-list-tab ${selectedTab === tab ? 'active' : ''}`}>
+            <div onClick={() => this.onClickTab(tab)} key={idx} className={`comment-list-tab no-select ${selectedTab === tab ? 'active' : ''}`}>
               {tabList[tab]}
             </div>
           );
