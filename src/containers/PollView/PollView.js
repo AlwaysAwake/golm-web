@@ -78,7 +78,7 @@ https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_b
               </div>
             </div>
             <div className="col-sm-12">
-              <img src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/point_so.png" className="percentage-pointer-img" role="presentation" style={{ marginLeft: `${percentA}%` }} />
+              <img src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/point_so.png" className="percentage-pointer-img" role="presentation" style={{ marginLeft: `calc(${percentA}% - 15px)` }} />
             </div>
             <div className="col-sm-12">
               <div className="percentage-bar"></div>
