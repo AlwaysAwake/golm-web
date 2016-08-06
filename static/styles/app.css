@@ -129,6 +129,10 @@ html {
 
 /* Custom styles */
 
+.container {
+  margin-top: 54px;
+}
+
 .card-container {
   margin-top: 50px;
 }
