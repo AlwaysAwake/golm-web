@@ -37,7 +37,7 @@ class PollView extends Component {
     }
 
     return (
-      <div className="container" style={{ padding: '15px' }}>
+      <div className={`container ${poll.type}`} style={{ padding: '15px' }}>
       {
         isFetching
         ? <Spinner />
@@ -51,6 +51,7 @@ class PollView extends Component {
                 img: poll['img_' + choice],
                 answer: poll['answer_' + choice],
                 description: poll['description_' + choice],
+                type: poll.type,
               };
               return <PollItem {...pollItem} key={idx} choice={choice} />;
             }) }
@@ -60,12 +61,12 @@ class PollView extends Component {
               <input className="comment-input text-center" type="text" ref="comment" style={{ width: '100%', marginTop: '10px', marginBottom: '10px' }} placeholder="선택하실 내용에 대한 의견을 작성해 주신 후 투표해 주세요." />
             </div>
             <div className="col-sm-6">
-              <img onClick={() => this.onClickPoll('A')} className="vote-img fit-to-width" src="
-https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_a.png" role="presentation" style={{ float: 'right' }} />
+              <img onClick={() => this.onClickPoll('A')} className="vote-img fit-to-width" src={`
+https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/${poll.type === 'premium' ? 'cm' : 'so'}_vote_a.png`} role="presentation" style={{ float: 'right' }} />
             </div>
             <div className="col-sm-6">
-              <img onClick={() => this.onClickPoll('B')} className="vote-img fit-to-width" src="
-https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_b.png" role="presentation" />
+              <img onClick={() => this.onClickPoll('B')} className="vote-img fit-to-width" src={`
+https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/${poll.type === 'premium' ? 'cm' : 'so'}_vote_b.png`} role="presentation" />
             </div>
           </div>
           <div className="row">
@@ -78,7 +79,7 @@ https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_b
               </div>
             </div>
             <div className="col-sm-12">
-              <img src="https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/point_so.png" className="percentage-pointer-img" role="presentation" style={{ marginLeft: `calc(${percentA}% - 15px)` }} />
+              <img src={`https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/point_${poll.type === 'premium' ? 'co' : 'so'}.png`} className="percentage-pointer-img" role="presentation" style={{ marginLeft: `calc(${percentA}% - 15px)` }} />
             </div>
             <div className="col-sm-12">
               <div className="percentage-bar"></div>
