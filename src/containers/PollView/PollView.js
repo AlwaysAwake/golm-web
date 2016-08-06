@@ -15,13 +15,14 @@ class PollView extends Component {
 
   onClickPoll(answer) {
     const { user, dispatch, params } = this.props;
-
     const commentRef = this.refs.comment.value;
-    dispatch(Actions.doPoll({
-      answer,
-      poll_id: params.id,
-      comment: commentRef,
-    }));
+    if (user) {
+      dispatch(Actions.doPoll({
+        answer,
+        poll_id: params.id,
+        comment: commentRef,
+      }));
+    }
   }
 
   render() {
