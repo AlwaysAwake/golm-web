@@ -8,6 +8,10 @@ import fixtures from '../../fixtures/fixtures';
 
 
 class Main extends Component {
+  componentWillMount() {
+    this.props.dispatch(Actions.fetchPolls());
+  }
+
   onClickCard(id) {
     this.context.router.push(`/polls/${id}`);
   }
@@ -37,25 +41,13 @@ Main.contextTypes = {
 };
 
 Main.propTypes = {
-  polls: PropTypes.shape({
-    normal: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      desc: PropTypes.string.isRequired,
-      img: PropTypes.string.isRequired,
-    })).isRequired,
-    premium: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      desc: PropTypes.string.isRequired,
-      img: PropTypes.string.isRequired,
-    })).isRequired,
-  }).isRequired,
+  polls: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => {
+  const { polls } = state;
   return {
-    polls: fixtures.polls,
+    polls: polls.polls,
   };
 };
 

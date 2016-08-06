@@ -20,7 +20,7 @@ html {
 html, body, #root {
   width: 100%;
   height: 100%;
-  font-family: Helvetica, sans-serif;
+  /* font-family: Helvetica, sans-serif; */
   font-size: 16px;
   overflow: auto;
 }
@@ -77,4 +77,16 @@ html, body, #root {
 
 .card-container-tab-item:first-child {
   margin-right: 5px;
+}
+
+.poll-item {
+  background: transparent;
+  border: 4px solid #7ed2e9;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.poll-item > img {
+  width: 100%;
+  height: 180px;
 }

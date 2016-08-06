@@ -1,7 +1,7 @@
 import * as ActionTypes from '../constants/actions';
 
 const initialState = {
-
+  polls: [],
 };
 
 const polls = (state = initialState, action) => {
@@ -10,6 +10,12 @@ const polls = (state = initialState, action) => {
       return {
         ...state,
         poll: action.poll,
+      };
+
+    case ActionTypes.SET_POLLS:
+      return {
+        ...state,
+        polls: action.polls,
       };
 
     default:

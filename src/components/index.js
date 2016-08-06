@@ -16,3 +16,6 @@ export CardItem from './Main/CardItem';
 /* Signin components */
 
 /* PollView components */
+export PollItem from './PollView/PollItem';
+export CommentList from './PollView/CommentList';
+export CommentItem from './PollView/CommentItem';
