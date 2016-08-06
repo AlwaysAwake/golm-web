@@ -25,9 +25,9 @@ class CommentList extends Component {
     }
 
     const tabList = {
-      all: 'All comments',
-      A: 'Comments supporting A',
-      B: 'Comments supporting B',
+      all: '전체 댓글 보기',
+      A: 'A 지지 댓글 보기',
+      B: 'B 지지 댓글 보기',
     };
 
     return (
