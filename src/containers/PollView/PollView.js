@@ -14,14 +14,18 @@ class PollView extends Component {
   }
 
   onClickPoll(answer) {
-    const { user, dispatch, params } = this.props;
+    const { isSignedin, dispatch, params } = this.props;
+    const { router } = this.context;
     const commentRef = this.refs.comment.value;
-    if (user) {
+
+    if (isSignedin) {
       dispatch(Actions.doPoll({
         answer,
         poll_id: params.id,
         comment: commentRef,
       }));
+    } else {
+      router.push('/signin');
     }
   }
 
@@ -97,6 +101,10 @@ https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/${poll.ty
   }
 }
 
+PollView.contextTypes = {
+  router: PropTypes.object.isRequired,
+};
+
 PollView.propTypes = {
   poll: PropTypes.object.isRequired,
   isFetching: PropTypes.bool.isRequired,
@@ -106,7 +114,7 @@ const mapStateToProps = (state) => {
   const { polls, users } = state;
   return {
     poll: polls.poll,
-    user: users.user,
+    isSignedin: !!users.user,
     isFetching: state.common.isFetching,
   };
 };
