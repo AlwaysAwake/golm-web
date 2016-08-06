@@ -22,7 +22,6 @@ export function fetchPoll(id) {
 }
 
 export function setPolls(res) {
-  console.log(res);
   return {
     type: ActionTypes.SET_POLLS,
     polls: res.polls,
@@ -35,5 +34,40 @@ export function fetchPolls() {
       .then(checkStatus)
       .then(parseJSON)
       .then(res => dispatch(setPolls(res)));
+  };
+}
+
+export function setUser(res) {
+  return {
+    type: ActionTypes.SET_USER,
+    user: res.user,
+  };
+}
+
+export function signUp({ user }) {
+  return (dispatch) => {
+    return fetch(`${apiBaseURL}/users`, {
+      method: 'POST',
+      body: JSON.stringify({
+        user,
+      }),
+    })
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(res => dispatch(setUser(res)));
+  };
+}
+
+export function signIn({ user }) {
+  return (dispatch) => {
+    return fetch(`${apiBaseURL}/signin`, {
+      method: 'POST',
+      body: JSON.stringify({
+        user,
+      }),
+    })
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(res => dispatch(setUser(res)));
   };
 }

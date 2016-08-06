@@ -17,16 +17,11 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(webpackHotMiddleware(compiler));
 }
 
-
 app.use(compression());
 app.use(express.static(path.resolve(__dirname, './static')));
 app.set('views', path.join(__dirname, 'static'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-
-
-console.log(path.resolve(__dirname, './static'));
-
 
 app.get('*', (req, res) => {
   res.render('index.html');

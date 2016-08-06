@@ -1,3 +1,6 @@
+/* Actions: Users */
+export const SET_USER = 'SET_USER';
+
 /* Actions: Polls */
 
 export const SET_POLL = 'SET_POLL';
