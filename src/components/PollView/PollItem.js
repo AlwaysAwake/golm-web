@@ -14,7 +14,7 @@ const PollItem = (props) => {
           </div>
           <div className="col-xs-8">
             <h3>{props.answer}</h3>
-            <h5>{props.description}</h5>
+            <h6>{props.description}</h6>
           </div>
         </div>
       </div>
