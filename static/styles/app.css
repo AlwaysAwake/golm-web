@@ -133,7 +133,7 @@ html {
 /* Custom styles */
 
 .container {
-  margin-top: 54px;
+  margin-top: 30px;
 }
 
 .card-container {
@@ -206,7 +206,7 @@ html {
 }
 
 .poll-block {
-  color: #000;
+  color: rgb(55, 58, 60);
   padding: 15px;
   min-height: 200px;
 }
@@ -221,6 +221,10 @@ html {
   padding: 10px;
   border: 2px solid #cfcece;
   color: #939393;
+}
+
+.comment-input:focus {
+  text-align: left;
 }
 
 .comment-list-container {
