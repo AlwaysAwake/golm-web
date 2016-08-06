@@ -2,31 +2,21 @@ import React, { PropTypes, Component } from 'react';
 
 
 class Header extends Component {
-  onClickMain(e) {
+  onClickLink(e, redirectAddress) {
     e.preventDefault();
-    this.context.router.push('/');
-  }
-
-  onClickSignin(e) {
-    e.preventDefault();
-    this.context.router.push('/signin');
-  }
-
-  onClickSignup(e) {
-    e.preventDefault();
-    this.context.router.push('/signup');
+    this.context.router.push(`/${redirectAddress}`);
   }
 
   render() {
     return (
       <nav className="navbar navbar-dark bg-inverse">
-        <a onClick={(e) => this.onClickMain(e)} href="#" className="navbar-brand">GOLM</a>
+        <a onClick={(e) => this.onClickLink(e, '')} href="#" className="navbar-brand">GOLM</a>
         <ul className="nav navbar-nav pull-sm-right">
           <li className="nav-item">
-            <a onClick={(e) => this.onClickSignin(e)} href="#" className="nav-link">Sign in</a>
+            <a onClick={(e) => this.onClickLink(e, 'signin')} href="#" className="nav-link">Sign in</a>
           </li>
           <li className="nav-item">
-            <a onClick={(e) => this.onClickSignup(e)} href="#" className="nav-link">Sign up</a>
+            <a onClick={(e) => this.onClickLink(e, 'signup')} href="#" className="nav-link">Sign up</a>
           </li>
         </ul>
       </nav>
