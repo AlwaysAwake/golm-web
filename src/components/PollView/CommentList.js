@@ -7,7 +7,7 @@ const CommentList = (props) => {
   return (
     <div className="comment-list">
     { props.pollHistories.map((history, idx) => {
-      return <CommentItem key={idx} {...props} />;
+      return <CommentItem key={idx} {...history} />;
     }) }
     </div>
   );

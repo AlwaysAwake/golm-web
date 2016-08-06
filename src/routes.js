@@ -5,6 +5,7 @@ import App from './App';
 import {
   Main,
   Signin,
+  Signup,
   PollView,
 } from './containers';
 import { NotFound } from './components';
@@ -14,6 +15,8 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={Main} />
     <Route path="polls/:id" component={PollView} />
+    <Route path="signin" component={Signin} />
+    <Route path="signup" component={Signup} />
     <Route path="*" component={NotFound} />
   </Route>
 );
