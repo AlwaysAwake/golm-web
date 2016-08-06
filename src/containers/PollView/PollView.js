@@ -71,10 +71,10 @@ https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_b
           <div className="row">
             <div className="col-sm-12">
               <div className="percentage-left">
-                {`A ${percentA}%`}
+                A&nbsp;&nbsp;&nbsp;{percentA}%
               </div>
               <div className="percentage-right">
-                {`${percentB}% B`}
+                {percentB}%&nbsp;&nbsp;&nbsp;B
               </div>
             </div>
             <div className="col-sm-12">

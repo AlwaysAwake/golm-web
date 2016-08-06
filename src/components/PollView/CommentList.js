@@ -42,9 +42,13 @@ class CommentList extends Component {
         }) }
         </div>
         <div className="comment-list-wrapper">
-          { filteredHistories.map((history, idx) => {
+        {
+          filteredHistories.length > 0
+          ? filteredHistories.map((history, idx) => {
             return <CommentItem key={idx} {...history} />;
-          }) }
+          })
+          : <h3 className="text-center" style={{ marginTop: '30px' }}>작성된 댓글이 없습니다. 첫 댓글을 남겨보는 건 어떠세요?</h3>
+        }
         </div>
       </div>
     );
