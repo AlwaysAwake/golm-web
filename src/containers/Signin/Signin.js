@@ -15,7 +15,7 @@ class Signin extends Component {
       dispatch(Actions.signIn({
         user: {
           email: emailRef,
-          pass: passRef,
+          password: passRef,
         },
       }));
     }
