@@ -7,9 +7,15 @@ import { Swiper, CardContainer, Spinner } from '../../components';
 
 
 class Main extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      selectedTab: 'normal',
+    };
+  }
+
   componentWillMount() {
     const { dispatch } = this.props;
-
     dispatch(Actions.fetchPolls());
   }
 
@@ -17,12 +23,14 @@ class Main extends Component {
     this.context.router.push(`/polls/${id}`);
   }
 
-  onClickTab(tab) {
-
+  onClickTab(selectedTab) {
+    this.setState({ selectedTab });
   }
 
   render() {
     const { polls, isFetching } = this.props;
+    const { selectedTab } = this.state;
+    const filteredPolls = polls.filter(poll => poll.type === selectedTab);
 
     return (
       <div className="container" style={{ padding: '15px' }}>
@@ -32,7 +40,7 @@ class Main extends Component {
         : <div>
           <Swiper />
           <CardContainer
-            polls={polls}
+            polls={filteredPolls}
             onClickCard={(id) => this.onClickCard(id)}
             onClickTab={(tab) => this.onClickTab(tab)}
           />

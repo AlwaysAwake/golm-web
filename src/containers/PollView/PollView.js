@@ -32,8 +32,8 @@ class PollView extends Component {
       percentA = 50;
       percentB = 50;
     } else {
-      percentA = poll.count_A / (poll.count_A + poll.count_B);
-      percentB = poll.count_B / (poll.count_A + poll.count_B);
+      percentA = poll.count_A / (poll.count_A + poll.count_B) * 100;
+      percentB = poll.count_B / (poll.count_A + poll.count_B) * 100;
     }
 
     return (
