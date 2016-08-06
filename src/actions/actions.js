@@ -45,6 +45,26 @@ export function fetchPolls() {
   };
 }
 
+export function doPoll({ answer, poll_id, comment }) {
+  return (dispatch, getState) => {
+    const { users: { user: { id } } } = getState();
+    dispatch(doFetch());
+    return fetch(`${apiBaseURL}/pollhistories`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        user_id: id,
+        poll_id,
+        answer,
+        comment,
+      }),
+    })
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(res => dispatch(fetchPoll(poll_id)));
+  };
+}
+
 export function setUser(res) {
   return {
     type: ActionTypes.SET_USER,

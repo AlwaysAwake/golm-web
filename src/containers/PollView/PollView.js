@@ -13,8 +13,15 @@ class PollView extends Component {
     dispatch(Actions.fetchPoll(params.id));
   }
 
-  onClickPoll(choice) {
-    this.props.dispatch(Actions.doPoll(choice));
+  onClickPoll(answer) {
+    const { user, dispatch, params } = this.props;
+
+    const commentRef = this.refs.comment.value;
+    dispatch(Actions.doPoll({
+      answer,
+      poll_id: params.id,
+      comment: commentRef,
+    }));
   }
 
   render() {
@@ -26,22 +33,31 @@ class PollView extends Component {
         isFetching
         ? <Spinner />
         : <div>
-          <div className="jumbotron">
-            <h1 className="display-3">{poll.title}</h1>
-            <p className="lead">{poll.description}</p>
-          </div>
-          <div className="row">
-            <div className="col-sm-12">
-              <progress className="progress progress-info" value="50" max="100"></progress>
-            </div>
+          <h2 className="display-3">{poll.title}</h2>
+          <div className="divider"></div>
+          <h3 className="lead">{poll.description}</h3>
+          <div className="row" style={{ marginTop: '20px' }}>
             { ['A', 'B'].map((choice, idx) => {
               const pollItem = {
                 img: poll['img_' + choice],
                 answer: poll['answer_' + choice],
                 description: poll['description_' + choice],
               };
-              return <PollItem {...pollItem} key={idx} choice={choice} onClick={(c) => this.onClickPoll(c)} {...pollItem} />;
+              return <PollItem {...pollItem} key={idx} choice={choice} />;
             }) }
+          </div>
+          <div className="row" style={{ padding: '0 30px' }}>
+            <div className="col-sm-12">
+              <input className="comment-input text-center" type="text" ref="comment" style={{ width: '100%', marginTop: '10px', marginBottom: '10px' }} placeholder="Please show your opinion." />
+            </div>
+            <div className="col-sm-6">
+              <img onClick={() => this.onClickPoll('A')} className="vote-img fit-to-width" src="
+https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_a.png" role="presentation" style={{ float: 'right' }} />
+            </div>
+            <div className="col-sm-6">
+              <img onClick={() => this.onClickPoll('B')} className="vote-img fit-to-width" src="
+https://s3.ap-northeast-2.amazonaws.com/leefwangbucket/gokathon/images/so_vote_b.png" role="presentation" />
+            </div>
             <CommentList pollHistories={poll.poll_histories} />
           </div>
         </div>
@@ -71,9 +87,10 @@ PollView.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const { polls } = state;
+  const { polls, users } = state;
   return {
     poll: polls.poll,
+    user: users.user,
     isFetching: state.common.isFetching,
   };
 };
