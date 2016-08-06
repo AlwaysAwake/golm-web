@@ -22,7 +22,7 @@ class CardContainer extends Component {
 
     return (
       <div className="card-container">
-        <h2 className="text-center">Ongoing polls</h2>
+        <h2 className="text-center">진행중인 설문</h2>
         <CardContainerTab onClick={(tab) => this.onClickTab(tab)} selectedTab={selectedTab} />
         <div className="row">
           { polls.map((poll, idx) => <CardItem key={idx} onClick={onClickCard} poll={poll} />) }
