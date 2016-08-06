@@ -399,3 +399,21 @@ html {
   border: 2px solid #939393;
   border-radius: 50px;
 }
+
+.container-enter {
+  opacity: 0.01;
+}
+
+.container-enter.container-enter-active {
+  opacity: 1;
+  transition: opacity 700ms ease-in;
+}
+
+.container-leave {
+  opacity: 1;
+}
+
+.container-leave.container-leave-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
+}
