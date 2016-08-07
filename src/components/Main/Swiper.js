@@ -5,6 +5,8 @@ import Slider from 'react-slick';
 const sliderSettings = {
   dots: true,
   centerMode: true,
+  autoplay: true,
+  autoplaySpeed: 3000,
 };
 
 const Swiper = () => {
