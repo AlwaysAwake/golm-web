@@ -121,9 +121,6 @@ export function addPoll(poll) {
         ...poll,
         user_id: user.id
       }),
-    })
-      .then(checkStatus)
-      .then(parseJSON)
-      .then(res => dispatch(setUser(res)));
+    });
   };
 }
