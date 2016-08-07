@@ -60,7 +60,8 @@ class PollAddView extends Component {
         type: selectedTab,
         expired_at: startDate,
         ...premiumFeatures,
-      }));
+      }))
+        .then(() => this.context.router.push('/'));
     }
   }
 
