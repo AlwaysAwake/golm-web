@@ -45,7 +45,6 @@ class PollAddView extends Component {
     const premiumFeatures = selectedTab === 'premium' ? {
       price: this.refs.price.value,
       applicant: this.refs.applicant.value,
-      expired_at: startDate,
     } : {};
 
     if (titleRef !== '' && answerARef !== '' && answerBRef !== '' && typeRef !== '' && isSignedin) {
@@ -59,6 +58,7 @@ class PollAddView extends Component {
         description_A: descriptionARef,
         description_B: descriptionBRef,
         type: selectedTab,
+        expired_at: startDate,
         ...premiumFeatures,
       }));
     }
